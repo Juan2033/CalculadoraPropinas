@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title> Hola mundo</title>
+        <link rel="stylesheet">
+    </head>
+    <body>
+
+        <h1> Calculadora de propinas</h1>  
+        <div class="contenedor-uno">
+            <label for="peso"> Califique su nivel de satisfaccion </label>
+            <select id="nvSatisfaccion">
+                <option value="1"> Excelente </option>
+                <option value="2"> Bueno </option>
+                <option value="3"> Regular </option>
+                <option value="4"> Malo </option>
+            </select>            
+
+            <label for=""> Ingrese el monto total de la cuenta </label>
+            <input type="text" id="montoCuenta">
+
+            <input type="button" value="Calcular" id="btn">
+
+        </div>   
+        <br>                
+        <div class="resultado">
+           
+        </div>   
+
+        <script>
+            // Capturar elementos
+            let nvSatisfaccion = document.querySelector("#nvSatisfaccion");
+            let montoCuenta = document.querySelector("#montoCuenta");
+            let btn = document.querySelector("#btn");
+            let resultado = document.querySelector(".resultado");
+
+            btn.addEventListener("click", () => {
+                let nvSatisfaccionValue = nvSatisfaccion.value;
+                let montoCuentaNumber = Number(montoCuenta.value);
+                let valorPropina;
+                let valorTotalPropina;
+                switch (nvSatisfaccionValue) {
+                    case "1":
+                    valorPropina = 20 / 100;
+                    valorTotalPropina = montoCuentaNumber * valorPropina;
+                    break;
+                    case "2":
+                    valorPropina = 15 / 100;
+                    valorTotalPropina = montoCuentaNumber * valorPropina;
+                    break;
+                    case "3":
+                    valorPropina = 10 / 100;
+                    valorTotalPropina = montoCuentaNumber * valorPropina;
+                    break;
+                    case "4":
+                    valorPropina = 5 / 100;
+                    valorTotalPropina = montoCuentaNumber * valorPropina;
+                    break;
+                
+                    default:
+                        alert("No has seleccionado ninguna opcion")
+                        break;
+                }
+                resultado.textContent = `El valor de la propina es ${valorTotalPropina}`;
+
+            })
+        </script>
+    </body>
+</html>
